@@ -2,13 +2,13 @@
   "app" : {
     "name" : "cockroachApp",
     "author" : "Reo Sahobby",
-    "port" : 3000
+    "port" : 5000
   },
   "database" : {
-    "host" : "mysql-cockroach",
+    "host" : "mysqlcockroach",
     "user" : "root",
     "password" : "root",
-    "port" : 3307,
+    "port" : 3306,
     "database_name" : "cockroach_app"
   }
 }

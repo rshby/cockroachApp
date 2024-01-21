@@ -19,7 +19,7 @@ type ServerApp struct {
 
 func NewServerApp(cfg *config.ConfigApp, db database.Database) Server {
 	app := fiber.New(fiber.Config{
-		Prefork: true,
+		Prefork: false,
 	})
 
 	app.Use(logger.New())

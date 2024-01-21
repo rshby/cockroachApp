@@ -16,6 +16,6 @@ WORKDIR /app
 COPY --from=builder /app/config.json ./
 COPY --from=builder /app/bin/cockroachApp ./
 
-EXPOSE 3000
+EXPOSE 5000
 CMD ./cockroachApp
 

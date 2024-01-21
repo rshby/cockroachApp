@@ -26,6 +26,8 @@ func NewMySqlDatabase(cfg *config.ConfigApp) Database {
 	if err != nil {
 		log.Fatalf("cant connect db : %v", err)
 	}
+
+	log.Println("success connect database")
 	return &MySqlDB{db}
 }
 

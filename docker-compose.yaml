@@ -1,34 +1,34 @@
 version: "3.8"
 
 networks:
-  cockroach-network:
-    name: cockroach-network
+  cockroachnetwork:
+    name: cockroachnetwork
     driver: bridge
 
 services:
-  mysql-cockroach:
+  mysqlcockroach:
     image: mysql:latest
-    container_name: mysql-cockroach
-#    ports:
-#      - target: 3306 # port di container
-#        published: 3307 # port di local
-#        protocol: tcp
-#        mode: host
+    container_name: mysqlcockroach
+    ports:
+      - target: 3306 # port di container
+        published: 3306 # port di local
+        protocol: tcp
+        mode: host
     environment:
       - MYSQL_ROOT_PASSWORD=root
     networks:
-      - cockroach-network
+      - cockroachnetwork
     volumes:
       - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql # dir local : dir container
 
-  cockroach-app :
+  cockroachapp :
     build: .
-    container_name: cockroach-app
+    container_name: cockroachapp
     ports:
-      - target: 3000 # port di container
-        published: 3000 # port di local
+      - target: 5000 # port di container
+        published: 5000 # port di local
     networks:
-      - cockroach-network
+      - cockroachnetwork
     depends_on:
-      - mysql-cockroach
+      - mysqlcockroach
 
