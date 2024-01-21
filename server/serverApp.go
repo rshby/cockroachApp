@@ -1,6 +1,7 @@
 package server
 
 import (
+	"cockroachApp/app/handler"
 	"cockroachApp/config"
 	"cockroachApp/database"
 	"cockroachApp/router"
@@ -35,7 +36,7 @@ func (s *ServerApp) RunServer() error {
 	return s.App.Listen(addr)
 }
 
-func (s *ServerApp) AddRouter() {
+func (s *ServerApp) AddRouter(handler handler.CockroachHandler) {
 	v1 := s.App.Group("/v1")
-	router.NewRouter(v1)
+	router.NewRouter(v1, handler)
 }
