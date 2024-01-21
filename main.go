@@ -3,7 +3,8 @@ package main
 import (
 	"cockroachApp/config"
 	"cockroachApp/database"
-	"fmt"
+	server "cockroachApp/server"
+	"log"
 )
 
 func main() {
@@ -12,6 +13,17 @@ func main() {
 
 	// declare database
 	db := database.NewMySqlDatabase(cfg)
-	dbConn := db.GetDB()
-	fmt.Println(dbConn) // TODO : nanti dihapus
+
+	// register repository
+
+	// register usecase
+
+	// register handler
+
+	// intiate server
+	server := server.NewServerApp(cfg, db)
+	server.AddRouter()
+	if err := server.RunServer(); err != nil {
+		log.Fatalf("cant run app : %v", err)
+	}
 }

@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  mysql-cockroach:
+    image: mysql:latest
+    container_name: mysql-cockroach
+    ports:
+      - target: 3306 # port di container
+        published: 3307 # port di local
+        protocol: tcp
+        mode: host
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql # dir local : dir container
