@@ -5,7 +5,7 @@
     "port" : 3000
   },
   "database" : {
-    "host" : "localhost",
+    "host" : "mysql-cockroach",
     "user" : "root",
     "password" : "root",
     "port" : 3307,

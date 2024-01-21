@@ -1,1 +1,11 @@
 CREATE DATABASE IF NOT EXISTS cockroach_app;
+
+USE cockroach_app;
+
+CREATE TABLE cockroach
+(
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    amount INT UNSIGNED NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+) engine = InnoDB;
