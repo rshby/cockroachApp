@@ -9,7 +9,12 @@ type CockroachRepoMock struct {
 	Mock *mock.Mock
 }
 
+// function provider
+func NewCockroachRepoMock() *CockroachRepoMock {
+	return &CockroachRepoMock{Mock: &mock.Mock{}}
+}
+
 func (c *CockroachRepoMock) InsertCockroachData(in *dto.InsertCockroachDto) error {
-	//TODO implement me
-	panic("implement me")
+	args := c.Mock.Called(in)
+	return args.Error(0)
 }
