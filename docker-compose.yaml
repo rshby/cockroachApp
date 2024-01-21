@@ -23,10 +23,11 @@ services:
 
   cockroachapp :
     build: .
-    container_name: cockroachapp
     ports:
       - target: 5000 # port di container
         published: 5000 # port di local
+        protocol: tcp
+        mode: host
     networks:
       - cockroachnetwork
     depends_on:

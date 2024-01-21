@@ -4,9 +4,10 @@ WORKDIR /app
 
 COPY ./ ./
 
-RUN ls
 RUN mkdir bin
+
 RUN go mod tidy
+
 RUN go build -o ./bin/cockroachApp ./main.go
 
 FROM alpine:3

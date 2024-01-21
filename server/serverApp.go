@@ -32,7 +32,7 @@ func NewServerApp(cfg *config.ConfigApp, db database.Database) Server {
 }
 
 func (s *ServerApp) RunServer() error {
-	addr := fmt.Sprintf("localhost:%v", s.Config.App.Port)
+	addr := fmt.Sprintf(":%v", s.Config.App.Port)
 	return s.App.Listen(addr)
 }
 
